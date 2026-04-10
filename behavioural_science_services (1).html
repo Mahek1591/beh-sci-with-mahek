@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mahek Agarwal — Behavioural Science Consulting</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Instrument+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink:        #1a1630;
+  --ink-2:      #433d6b;
+  --ink-3:      #8f89b8;
+  --page-bg:    #f3f2f9;
+  --card-bg:    #faf9fd;
+  --purple:     #857db1;
+  --purple-mid: #6b62a8;
+  --purple-dk:  #4e4680;
+  --purple-lt:  #edeafb;
+  --purple-xlt: #f5f3fd;
+  --border:     #d4cff0;
+  --border-lt:  #e8e5f5;
+  --gold:       #c9a84c;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--page-bg);
+  color: var(--ink);
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.page { max-width: 780px; margin: 0 auto; padding: 0 1.5rem 6rem; }
+
+/* ─── HERO ─── */
+.hero {
+  padding: 5rem 0 4rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 4rem;
+}
+.hero-eyebrow {
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--purple);
+  margin-bottom: 1.75rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--border);
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.6rem, 6vw, 4rem);
+  font-weight: 500;
+  line-height: 1.1;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+  max-width: 620px;
+}
+.hero h1 em { font-style: italic; color: var(--purple-mid); }
+.hero-sub {
+  font-size: 17px;
+  color: var(--ink-2);
+  max-width: 540px;
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+  font-weight: 300;
+}
+.hero-support { font-size: 12.5px; color: var(--ink-3); letter-spacing: 0.025em; max-width: 480px; }
+
+/* ─── SIGNS ─── */
+.signs {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 2.5rem 2.25rem;
+  margin-bottom: 4rem;
+}
+.signs-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 0.35rem;
+}
+.signs-intro { font-size: 13px; color: var(--ink-3); margin-bottom: 1.5rem; }
+.signs-list { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; margin-bottom: 1.75rem; }
+.signs-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 14.5px;
+  color: var(--ink-2);
+}
+.signs-list li::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--purple);
+  flex-shrink: 0;
+  margin-top: 7px;
+}
+.signs-closer {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--purple-mid);
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border-lt);
+}
+
+/* ─── SECTION LABEL ─── */
+.section-label {
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+/* ─── SERVICE CARDS ─── */
+.services { display: flex; flex-direction: column; gap: 2.25rem; margin-bottom: 4rem; }
+
+.service-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.service-card.featured { border-color: var(--purple-mid); border-width: 1.5px; }
+
+.featured-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--purple-lt);
+  padding: 0.5rem 2rem;
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--purple-dk);
+  letter-spacing: 0.02em;
+  border-bottom: 1px solid var(--border);
+}
+.star { color: var(--gold); font-size: 13px; }
+
+.card-header { padding: 1.75rem 2rem 1.5rem; border-bottom: 1px solid var(--border-lt); }
+.card-num { font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 0.3rem; }
+.card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.7rem;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.15;
+  margin-bottom: 0.25rem;
+}
+.card-tagline { font-size: 13.5px; color: var(--ink-2); font-weight: 300; margin-bottom: 0.2rem; }
+.card-flavour { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-style: italic; color: var(--ink-3); margin-top: 0.35rem; }
+
+.card-pricing {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+.price-main { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; color: var(--purple-dk); }
+.price-meta { font-size: 12px; color: var(--ink-3); }
+.timeframe-pill {
+  display: inline-flex;
+  align-items: center;
+  font-size: 11px;
+  color: var(--purple-mid);
+  background: var(--purple-lt);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 3px 11px;
+  letter-spacing: 0.03em;
+}
+.price-reassurance { font-size: 11.5px; font-style: italic; color: var(--ink-3); margin-top: 0.4rem; }
+.impact-framing {
+  font-size: 12.5px;
+  color: var(--purple-mid);
+  background: var(--purple-xlt);
+  border-left: 2px solid var(--purple);
+  padding: 0.5rem 0.85rem;
+  border-radius: 0 3px 3px 0;
+  margin-top: 0.85rem;
+  font-style: italic;
+}
+
+.card-body { padding: 1.5rem 2rem; }
+.what-you-get-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 0.85rem;
+}
+.includes-list { list-style: none; display: flex; flex-direction: column; gap: 0.45rem; margin-bottom: 1.25rem; }
+.includes-list li { font-size: 13.5px; color: var(--ink-2); display: flex; align-items: flex-start; gap: 0.65rem; }
+.includes-list li::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--purple);
+  flex-shrink: 0;
+  margin-top: 7px;
+}
+.confidence-line {
+  font-size: 12.5px;
+  color: var(--ink-3);
+  font-style: italic;
+  border-top: 1px solid var(--border-lt);
+  padding-top: 1rem;
+  margin-top: 0.5rem;
+}
+.expectation-line {
+  font-size: 13px;
+  color: var(--ink-2);
+  background: var(--purple-xlt);
+  border-radius: 4px;
+  padding: 0.65rem 0.9rem;
+  margin-bottom: 0.75rem;
+}
+
+.sub-packages { display: flex; flex-direction: column; gap: 1.1rem; margin-bottom: 1.25rem; }
+.sub-pkg {
+  padding: 1rem 1.2rem;
+  background: var(--purple-xlt);
+  border-radius: 4px;
+  border-left: 3px solid var(--purple);
+}
+.sub-pkg-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.6rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.sub-pkg-name { font-weight: 500; font-size: 13px; color: var(--ink); }
+.sub-pkg-price { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 600; color: var(--purple-mid); white-space: nowrap; }
+
+/* ─── QUIZ ─── */
+.quiz-section {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 4rem;
+}
+
+.quiz-top {
+  padding: 2rem 2.25rem 1.75rem;
+  border-bottom: 1px solid var(--border-lt);
+}
+
+.quiz-eyebrow {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--purple);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.quiz-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 0.3rem;
+}
+
+.quiz-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--purple-mid);
+  margin-bottom: 0.5rem;
+}
+
+.quiz-desc { font-size: 13px; color: var(--ink-3); }
+
+/* Progress bar */
+.quiz-progress-bar {
+  height: 3px;
+  background: var(--border-lt);
+  position: relative;
+}
+.quiz-progress-fill {
+  height: 100%;
+  background: var(--purple-mid);
+  transition: width 0.4s ease;
+  width: 0%;
+}
+
+/* Question area */
+.quiz-body { padding: 2rem 2.25rem; }
+
+.quiz-step { display: none; }
+.quiz-step.active { display: block; }
+
+.q-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 0.6rem;
+}
+
+.q-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 1.25rem;
+  line-height: 1.3;
+}
+
+.q-options { display: flex; flex-direction: column; gap: 0.6rem; }
+
+.q-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: var(--purple-xlt);
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+  text-align: left;
+  width: 100%;
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 13.5px;
+  color: var(--ink-2);
+  line-height: 1.45;
+}
+
+.q-option:hover { border-color: var(--purple); background: var(--purple-lt); }
+
+.q-option.selected {
+  border-color: var(--purple-mid);
+  background: var(--purple-lt);
+  color: var(--ink);
+}
+
+.q-option-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  flex-shrink: 0;
+  margin-top: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.q-option.selected .q-option-dot {
+  border-color: var(--purple-mid);
+  background: var(--purple-mid);
+}
+
+.q-option.selected .q-option-dot::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.quiz-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+  gap: 1rem;
+}
+
+.quiz-btn {
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 0.55rem 1.4rem;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, opacity 0.15s;
+  letter-spacing: 0.02em;
+}
+
+.quiz-btn-primary {
+  background: var(--purple-mid);
+  color: #fff;
+  border-color: var(--purple-mid);
+}
+.quiz-btn-primary:hover { background: var(--purple-dk); border-color: var(--purple-dk); }
+.quiz-btn-primary:disabled { opacity: 0.38; cursor: default; }
+
+.quiz-btn-ghost {
+  background: transparent;
+  color: var(--ink-3);
+}
+.quiz-btn-ghost:hover { background: var(--purple-xlt); color: var(--ink-2); }
+
+.q-counter { font-size: 12px; color: var(--ink-3); }
+
+/* Result */
+.quiz-result { display: none; }
+.quiz-result.active { display: block; }
+
+.result-intro {
+  font-size: 12.5px;
+  color: var(--ink-3);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 0.6rem;
+}
+
+.result-service-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 0.35rem;
+}
+
+.result-why {
+  font-size: 14px;
+  color: var(--ink-2);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  max-width: 520px;
+}
+
+.result-price-line {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  padding: 0.85rem 1rem;
+  background: var(--purple-lt);
+  border-radius: 5px;
+  margin-bottom: 1.25rem;
+  border: 1px solid var(--border);
+}
+
+.result-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--purple-dk);
+}
+
+.result-meta { font-size: 12px; color: var(--ink-3); }
+
+.result-retake {
+  font-size: 12.5px;
+  color: var(--ink-3);
+  margin-top: 1rem;
+  display: block;
+}
+
+.result-retake button {
+  background: none;
+  border: none;
+  color: var(--purple-mid);
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 12.5px;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+}
+
+/* ─── FOOTER ─── */
+.footer {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-lt);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+.footer-name { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic; color: var(--ink-2); }
+.footer-note { font-size: 11.5px; color: var(--ink-3); }
+
+@media (max-width: 560px) {
+  .card-header, .card-body, .quiz-body, .quiz-top { padding-left: 1.25rem; padding-right: 1.25rem; }
+  .signs { padding: 1.75rem 1.25rem; }
+  .hero h1 { font-size: 2.2rem; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ── HERO ── -->
+  <header class="hero">
+    <span class="hero-eyebrow">Behavioural Science Consulting</span>
+    <h1>Your users aren't broken.<br><em>Your assumptions might be.</em></h1>
+    <p class="hero-sub">When metrics stall or users behave unexpectedly, behavioural science helps uncover what traditional analytics miss.</p>
+    <p class="hero-support">Evidence-backed behavioural frameworks to diagnose friction, improve decisions, and unlock growth.</p>
+  </header>
+
+  <!-- ── SIGNS ── -->
+  <section class="signs">
+    <h2 class="signs-heading">Signs You Might Need Behavioural Science</h2>
+    <p class="signs-intro">If any of these sound familiar, you're not alone:</p>
+    <ul class="signs-list">
+      <li>Users sign up… but don't come back</li>
+      <li>Conversion drops for no obvious reason</li>
+      <li>Features ship, but adoption stays low</li>
+      <li>A/B tests run, but results feel random</li>
+      <li>You have data — but still feel uncertain about user behaviour</li>
+    </ul>
+    <p class="signs-closer">Most product problems aren't technical. They're behavioural.</p>
+  </section>
+
+  <!-- ── SERVICES ── -->
+  <span class="section-label">Services & Pricing</span>
+  <div class="services">
+
+    <!-- Entry offer -->
+    <div class="service-card featured">
+      <div class="featured-tag"><span class="star">★</span> Most founders start here</div>
+      <div class="card-header">
+        <div class="card-num">Entry Offer</div>
+        <div class="card-title">Behavioural Second Opinion</div>
+        <div class="card-tagline">60–90 minute behavioural debugging session</div>
+        <div class="card-flavour">When something feels off — but you can't quite explain why.</div>
+        <div class="card-pricing">
+          <span class="price-main">₹5,000</span>
+          <span class="price-meta">60–90 mins</span>
+        </div>
+        <div class="price-reassurance">Less than the cost of building the wrong feature.</div>
+      </div>
+      <div class="card-body">
+        <div class="what-you-get-label">What You Get</div>
+        <ul class="includes-list">
+          <li>Review of your product flows or problem areas</li>
+          <li>Behavioural diagnosis of key friction points</li>
+          <li>Strategic recommendations you can test immediately</li>
+          <li>Clear summary of next steps via email</li>
+        </ul>
+        <div class="expectation-line">Most founders leave with 2–3 ideas they can implement immediately.</div>
+        <div class="confidence-line">No long-term commitment. Just clarity.</div>
+      </div>
+    </div>
+
+    <!-- App Audit -->
+    <div class="service-card">
+      <div class="card-header">
+        <div class="card-num">Core Offer</div>
+        <div class="card-title">Behavioural App Audit</div>
+        <div class="card-tagline">Find the invisible friction holding your product back.</div>
+        <div class="card-flavour">Like running an MRI scan on your user journey.</div>
+        <div class="card-pricing">
+          <span class="price-main">₹60,000</span>
+          <span class="price-meta">Fixed fee</span>
+          <span class="timeframe-pill">1 – 1.5 months</span>
+        </div>
+        <div class="impact-framing">Most audits uncover 5–10 behavioural friction points hiding in plain sight.</div>
+      </div>
+      <div class="card-body">
+        <div class="what-you-get-label">What You Get</div>
+        <ul class="includes-list">
+          <li>End-to-end user journey review</li>
+          <li>Behavioural friction mapping</li>
+          <li>Identification of cognitive biases and decision barriers</li>
+          <li>Prioritised recommendations (quick wins + strategic changes)</li>
+          <li>Executive presentation to stakeholders</li>
+        </ul>
+        <div class="confidence-line">Clear findings. Actionable next steps. No academic fluff.</div>
+      </div>
+    </div>
+
+    <!-- A/B Test Design -->
+    <div class="service-card">
+      <div class="card-header">
+        <div class="card-num">Service 02</div>
+        <div class="card-title">Experimentation & A/B Test Design</div>
+        <div class="card-tagline">Stop guessing. Start testing ideas that actually change behaviour.</div>
+        <div class="card-flavour">Not all experiments are equal — some are just expensive coin tosses.</div>
+        <div class="card-pricing">
+          <span class="price-main">₹33,000</span>
+          <span class="price-meta">Fixed fee</span>
+          <span class="timeframe-pill">2 – 3 weeks</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="what-you-get-label">What You Get</div>
+        <ul class="includes-list">
+          <li>Problem framing and hypothesis development</li>
+          <li>Behaviourally informed intervention design</li>
+          <li>Experiment structure (control vs. treatment)</li>
+          <li>Metrics and success criteria</li>
+          <li>Guidance on interpreting results</li>
+        </ul>
+        <div class="confidence-line">Test ideas worth testing — not vanity experiments.</div>
+      </div>
+    </div>
+
+    <!-- Usability Testing -->
+    <div class="service-card">
+      <div class="card-header">
+        <div class="card-num">Service 03</div>
+        <div class="card-title">Usability Testing Engagement</div>
+        <div class="card-tagline">Watch real users struggle — before your metrics do.</div>
+        <div class="card-flavour">Nothing builds empathy faster than watching someone fail at something you thought was obvious.</div>
+        <div class="card-pricing">
+          <span class="price-main">₹12,000</span>
+          <span class="price-meta">Setup</span>
+          <span style="font-size:12px;color:var(--ink-3)">+</span>
+          <span class="price-main" style="font-size:1.1rem;">₹2,000</span>
+          <span class="price-meta">/ session</span>
+          <span style="font-size:12px;color:var(--ink-3)">+</span>
+          <span class="price-main" style="font-size:1.1rem;">₹15,000</span>
+          <span class="price-meta">final report</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="sub-packages">
+          <div class="sub-pkg">
+            <div class="sub-pkg-header">
+              <span class="sub-pkg-name">A. Usability Testing Setup</span>
+              <span class="sub-pkg-price">₹12,000 · One-time</span>
+            </div>
+            <ul class="includes-list">
+              <li>Research objective alignment</li>
+              <li>Discussion guide and task design</li>
+              <li>Behavioural hypotheses creation</li>
+              <li>Participant criteria and session planning</li>
+            </ul>
+          </div>
+          <div class="sub-pkg">
+            <div class="sub-pkg-header">
+              <span class="sub-pkg-name">B. Per Testing Session</span>
+              <span class="sub-pkg-price">₹2,000 · Per session</span>
+            </div>
+            <ul class="includes-list">
+              <li>Moderation of 1:1 user testing</li>
+              <li>Behavioural probing and observation</li>
+              <li>Session notes and key takeaways</li>
+            </ul>
+          </div>
+          <div class="sub-pkg">
+            <div class="sub-pkg-header">
+              <span class="sub-pkg-name">C. Final Insights Report</span>
+              <span class="sub-pkg-price">₹15,000 · One-time</span>
+            </div>
+            <ul class="includes-list">
+              <li>Synthesis of findings across sessions</li>
+              <li>Behavioural friction mapping</li>
+              <li>Prioritised recommendations</li>
+              <li>Insight presentation deck</li>
+              <li>60-minute stakeholder presentation with Q&A</li>
+            </ul>
+          </div>
+        </div>
+        <div class="confidence-line">Watch real behaviour — not survey answers.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── DIAGNOSTIC QUIZ ── -->
+  <div class="quiz-section" id="quiz">
+
+    <div class="quiz-top">
+      <span class="quiz-eyebrow">Not sure where to start?</span>
+      <div class="quiz-heading">Find your starting point.</div>
+      <div class="quiz-sub">Start small.</div>
+      <p class="quiz-desc">Answer 3 quick questions and get a recommendation tailored to where you are right now.</p>
+    </div>
+
+    <div class="quiz-progress-bar">
+      <div class="quiz-progress-fill" id="progressFill"></div>
+    </div>
+
+    <div class="quiz-body">
+
+      <!-- Q1 -->
+      <div class="quiz-step active" id="step-1">
+        <div class="q-label">Question 1 of 3</div>
+        <div class="q-text">What best describes your biggest challenge right now?</div>
+        <div class="q-options">
+          <button class="q-option" data-q="1" data-val="opinion">
+            <span class="q-option-dot"></span>
+            Something feels off with my product — but I can't quite diagnose what or why
+          </button>
+          <button class="q-option" data-q="1" data-val="audit">
+            <span class="q-option-dot"></span>
+            I need a full picture of where friction is breaking my user journey
+          </button>
+          <button class="q-option" data-q="1" data-val="ab">
+            <span class="q-option-dot"></span>
+            I have hypotheses and want to run experiments — but I'm not sure how to design them well
+          </button>
+          <button class="q-option" data-q="1" data-val="usability">
+            <span class="q-option-dot"></span>
+            I want to see how real users actually interact with my product
+          </button>
+        </div>
+        <div class="quiz-nav">
+          <span class="q-counter">1 / 3</span>
+          <button class="quiz-btn quiz-btn-primary" id="next-1" disabled>Next →</button>
+        </div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="quiz-step" id="step-2">
+        <div class="q-label">Question 2 of 3</div>
+        <div class="q-text">How much time can you invest in this right now?</div>
+        <div class="q-options">
+          <button class="q-option" data-q="2" data-val="opinion">
+            <span class="q-option-dot"></span>
+            I need clarity fast — ideally within a week
+          </button>
+          <button class="q-option" data-q="2" data-val="ab">
+            <span class="q-option-dot"></span>
+            A few weeks works — I want structured output quickly
+          </button>
+          <button class="q-option" data-q="2" data-val="usability">
+            <span class="q-option-dot"></span>
+            I'm happy to run a few sessions over a few weeks
+          </button>
+          <button class="q-option" data-q="2" data-val="audit">
+            <span class="q-option-dot"></span>
+            I can commit to a deeper engagement — 1 to 1.5 months feels right
+          </button>
+        </div>
+        <div class="quiz-nav">
+          <button class="quiz-btn quiz-btn-ghost" id="back-2">← Back</button>
+          <span class="q-counter">2 / 3</span>
+          <button class="quiz-btn quiz-btn-primary" id="next-2" disabled>Next →</button>
+        </div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="quiz-step" id="step-3">
+        <div class="q-label">Question 3 of 3</div>
+        <div class="q-text">What does a successful outcome look like for you?</div>
+        <div class="q-options">
+          <button class="q-option" data-q="3" data-val="opinion">
+            <span class="q-option-dot"></span>
+            A clear diagnosis and 2–3 things I can act on immediately
+          </button>
+          <button class="q-option" data-q="3" data-val="audit">
+            <span class="q-option-dot"></span>
+            A complete map of what's broken, prioritised by impact
+          </button>
+          <button class="q-option" data-q="3" data-val="ab">
+            <span class="q-option-dot"></span>
+            A well-designed experiment ready to run — with a clear hypothesis
+          </button>
+          <button class="q-option" data-q="3" data-val="usability">
+            <span class="q-option-dot"></span>
+            Real behavioural observations I can share with my team
+          </button>
+        </div>
+        <div class="quiz-nav">
+          <button class="quiz-btn quiz-btn-ghost" id="back-3">← Back</button>
+          <span class="q-counter">3 / 3</span>
+          <button class="quiz-btn quiz-btn-primary" id="submit-quiz" disabled>See my recommendation →</button>
+        </div>
+      </div>
+
+      <!-- Result -->
+      <div class="quiz-result" id="quiz-result">
+        <div class="result-intro">Recommended for you</div>
+        <div class="result-service-name" id="result-name"></div>
+        <div class="result-why" id="result-why"></div>
+        <div class="result-price-line">
+          <span class="result-price" id="result-price"></span>
+          <span class="result-meta" id="result-meta"></span>
+        </div>
+        <span class="result-retake">Not quite right? <button onclick="resetQuiz()">Retake the quiz</button></span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="footer-name">Mahek Agarwal</div>
+    <div class="footer-note">All prices in Indian Rupees (₹) · Exclusive of taxes · Custom packages available on request</div>
+  </footer>
+
+</div>
+
+<script>
+const answers = { 1: null, 2: null, 3: null };
+const TOTAL = 3;
+
+const services = {
+  opinion: {
+    name: 'Behavioural Second Opinion',
+    why: 'Based on your answers, you need clarity more than a commitment. A focused 60–90 minute session will help you name the problem, identify the likely friction points, and leave with concrete next steps — without locking into a longer engagement.',
+    price: '₹5,000',
+    meta: '60–90 minute session · No long-term commitment'
+  },
+  audit: {
+    name: 'Behavioural App Audit',
+    why: "You're ready for a full diagnosis. A behavioural audit will map friction across your entire user journey, surface the cognitive barriers you can't see in your analytics, and give you a prioritised roadmap to act on.",
+    price: '₹60,000',
+    meta: 'Fixed fee · 1–1.5 months'
+  },
+  ab: {
+    name: 'Experimentation & A/B Test Design',
+    why: "You have direction — now you need rigour. This engagement will help you frame the right hypothesis, design an experiment worth running, and set up success criteria so your results are actually meaningful.",
+    price: '₹33,000',
+    meta: 'Fixed fee · 2–3 weeks'
+  },
+  usability: {
+    name: 'Usability Testing Engagement',
+    why: "The best way to understand user behaviour is to observe it. This engagement puts real users in front of your product, so you stop guessing and start seeing — friction, confusion, and moments of delight included.",
+    price: '₹12,000 setup + ₹2,000 / session',
+    meta: 'Modular · ₹15,000 final insights report'
+  }
+};
+
+function updateProgress(step) {
+  const pct = ((step - 1) / TOTAL) * 100;
+  document.getElementById('progressFill').style.width = pct + '%';
+}
+
+function goTo(step) {
+  document.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.quiz-result').forEach(r => r.classList.remove('active'));
+  const el = document.getElementById('step-' + step);
+  if (el) {
+    el.classList.add('active');
+    updateProgress(step);
+    // Re-highlight any already-selected option on this step
+    const saved = answers[step];
+    if (saved) {
+      el.querySelectorAll('.q-option').forEach(opt => {
+        opt.classList.toggle('selected', opt.dataset.val === saved);
+      });
+      enableNext(step);
+    }
+  }
+}
+
+function enableNext(q) {
+  const nextBtn = document.getElementById('next-' + q) || document.getElementById('submit-quiz');
+  if (nextBtn) nextBtn.disabled = false;
+}
+
+// Option click handler
+document.querySelectorAll('.q-option').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const q = parseInt(this.dataset.q);
+    answers[q] = this.dataset.val;
+    // Update selection UI
+    document.querySelectorAll(`.q-option[data-q="${q}"]`).forEach(o => o.classList.remove('selected'));
+    this.classList.add('selected');
+    enableNext(q);
+  });
+});
+
+// Navigation
+document.getElementById('next-1').addEventListener('click', () => goTo(2));
+document.getElementById('next-2').addEventListener('click', () => goTo(3));
+document.getElementById('back-2').addEventListener('click', () => goTo(1));
+document.getElementById('back-3').addEventListener('click', () => goTo(2));
+
+document.getElementById('submit-quiz').addEventListener('click', () => {
+  // Tally scores
+  const scores = { opinion: 0, audit: 0, ab: 0, usability: 0 };
+  const weights = { 1: 2, 2: 2, 3: 3 }; // Q3 is the tiebreaker
+  Object.entries(answers).forEach(([q, val]) => {
+    if (val) scores[val] += weights[parseInt(q)];
+  });
+  // Pick winner
+  const winner = Object.entries(scores).sort((a, b) => b[1] - a[1])[0][0];
+  const svc = services[winner];
+
+  document.getElementById('result-name').textContent = svc.name;
+  document.getElementById('result-why').textContent = svc.why;
+  document.getElementById('result-price').textContent = svc.price;
+  document.getElementById('result-meta').textContent = svc.meta;
+
+  document.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('active'));
+  document.getElementById('quiz-result').classList.add('active');
+  document.getElementById('progressFill').style.width = '100%';
+});
+
+function resetQuiz() {
+  answers[1] = null; answers[2] = null; answers[3] = null;
+  document.querySelectorAll('.q-option').forEach(o => o.classList.remove('selected'));
+  document.querySelectorAll('.quiz-btn-primary').forEach(b => b.disabled = true);
+  document.getElementById('quiz-result').classList.remove('active');
+  goTo(1);
+}
+
+updateProgress(1);
+</script>
+</body>
+</html>
